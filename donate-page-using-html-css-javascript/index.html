@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donate for CodeWithArjuna</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  	.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  color: black;
+  padding: 10px 20px;
+  background-color: #FFCC00;
+  border: 2px solid #c0c0c0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.btn:hover {
+  background-color: #daa520;
+}
+
+img.qr-code {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.button-container .btn {
+  flex: 1;
+  max-width: 200px;
+}
+
+  </style>
+</head>
+<body>
+  <button id="donate-btn" class="btn" onclick="openPopup()">Donate for CodeWithArjuna</button>
+  <div id="donate-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h3>Donate for CodeWithArjuna</h3>
+      <p>Scan the QR code or use the UPI button to donate:</p>
+      <img src="https://sat02pap003files.storage.live.com/y4mqCnU4M1WWj05ZrgypgRjgXY-ma28fRM58ippBprni5QRJYFAFhKMRZzSrh_4QB4t69XAQFkoL_xyMa4CGX2rf9lPuVtNz7K6q38ePie3lrK1cu1CGG5d0-wJfrzFXwiV4YlfInH8AStxfXHFoC-odwdgn-US4NPZuPpxY3xBuHXrfVDPjS8AuO4twmAOEoqt?width=2257&amp;height=2257&amp;cropmode=none" alt="QR code" class="qr-code">
+      <div class="button-container">
+        <button id="upi-btn" class="btn">Donate with UPI</button>
+        <button class="btn">donate with card</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var popup = document.getElementById("donate-popup");
+    var donateBtn = document.getElementById("donate-btn");
+    var upiBtn = document.getElementById("upi-btn");
+
+    function openPopup() {
+      popup.style.display = "block";
+    }
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+
+    upiBtn.onclick = function() {
+      window.location.href = "upi://pay?pa=rahulgupta@fam&pn=CodeWithArjuna&tn=Donation&cu=INR";
+    }
+  </script>
+</body>
+</html>
